@@ -28,11 +28,11 @@
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
                             {% if product.image %}
-                            <a href="">
+                            <a href="{% url 'product_detail' product.id %}" target="_blank">
                                 <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                             </a>
                             {% else %}
-                            <a href="">
+                            <a href="{% url 'product_detail' product.id %}" target="_blank">
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
@@ -55,29 +55,37 @@
                     </div>
 
 
+                    <!-- On xs screens -->
+                    <!-- It says render the 2nd col with a hr line on xs screens -->
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
                             <hr>
                         </div>
                     {% endif %}
                 
+                    <!-- On medium screens -->
+                    <!-- It says render the 3rd col with a hr line on med screens -->
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
                             <hr>
                         </div>
                     {% endif %}
 
+                    <!-- On large screens -->
+                    <!-- It says render the 4th col with a hr line on large screens -->
                     {% if forloop.counter|divisibleby:3 %}
                         <div class="col-12 d-none d-lg-block d-xl-none mb-5">
                             <hr>
                         </div>
                     {% endif %}
 
+                    <!-- On x-large screens -->
+                    <!-- It says render the 5th col with a hr line on x-lg screens -->
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block mb-5">
                             <hr>
                         </div>
-                    {% endif %}
+                    {% endif %} 
 
 
                 {% endfor %}
