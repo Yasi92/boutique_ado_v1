@@ -2,6 +2,7 @@ from audioop import reverse
 from email import message
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, Category
 from django.contrib import messages
 
