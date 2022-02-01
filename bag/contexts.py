@@ -2,7 +2,6 @@
 from decimal import Decimal
 from django.conf import settings
 
-from boutique_ado.settings import FREE_DELIVERY_THRESHOLD
 
 
 def bag_contents(request):
