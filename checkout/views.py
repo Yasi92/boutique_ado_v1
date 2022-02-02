@@ -1,3 +1,24 @@
-from django.shortcuts import render
+from audioop import reverse
+from email import message
+from django.shortcuts import redirect, render
+from django.contrib import messages
+
+
+from checkout.forms import OrderForm
 
 # Create your views here.
+
+def checkout(request):
+    bag = request.session.get('bag', {})
+    if not bag:
+        messages.error(request, "There is nothing in your bag at the moment")
+        return redirect(reverse('products'))
+
+
+    order_form = OrderForm()
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form' : OrderForm,
+
+    }    
+    return render(request, template, context)
