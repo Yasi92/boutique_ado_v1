@@ -87,7 +87,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',    # required by allauth
-                'bag.contexts.bag_contents'
+                'bag.contexts.bag_contents',
             ],
             'builtins' : [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -196,7 +196,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-    
+
     # Bucket config
     AWS_STORAGE_BUCKET_NAME = 'boutique-ado-yasi92'
     AWS_S3_REGION_NAME = 'eu-central-1'
